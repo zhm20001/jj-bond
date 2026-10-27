@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="Rebase J app icon">
+  <title>Rebase J</title>
+  <desc>A letter J drawn as a git graph, tilted 30 degrees. The solid circle at the end of the hook is a mutable commit; the solid diamond at the top is jj's immutable-commit marker. Both nodes sit on one vertical lane, and the arrow at the top of the stem points at the diamond's centre.</desc>
+  <path fill="#F8F7F4" d="M 924 512 C 924 450.24 925.03 388.43 922.47 326.73 C 919.97 266.46 913.32 195.99 870.67 153.33 C 828 110.67 757.52 104.02 697.23 101.52 C 635.54 98.97 573.75 100 512 100 C 450.24 100 388.43 98.97 326.73 101.53 C 266.46 104.03 195.99 110.68 153.33 153.33 C 110.67 196 104.02 266.48 101.52 326.77 C 98.97 388.46 100 450.25 100 512 C 100 573.76 98.97 635.57 101.53 697.27 C 104.03 757.54 110.68 828.01 153.33 870.67 C 196 913.33 266.48 919.98 326.77 922.48 C 388.46 925.03 450.25 924 512 924 C 573.76 924 635.57 925.03 697.27 922.47 C 757.54 919.97 828.01 913.32 870.67 870.67 C 913.33 828 919.98 757.52 922.48 697.23 C 925.03 635.54 924 573.75 924 512 Z"/>
+  <g transform="translate(468.95 353.40) rotate(-30) scale(0.8815)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 0 -14 L 0 300 C 0 340.43 -0.86 381.58 -16.35 418.92 C -23.72 436.68 -34.14 453.07 -47.74 466.66 C -59.31 478.21 -72.96 487.51 -88.07 493.76 C -102.25 499.62 -117.44 502.68 -132.79 502.68 C -148.18 502.68 -163.42 499.6 -177.64 493.7 C -192.74 487.44 -206.38 478.13 -217.93 466.56 C -231.53 452.96 -241.93 436.56 -249.29 418.79 C -264.73 381.48 -265.58 340.38 -265.58 300" fill="none" stroke="#1A233A" stroke-width="30"/>
+    <path d="M 0 -96 L 56 0 L -48 0 Z" fill="#1A233A" stroke="none"/>
+    <circle cx="-265.58" cy="300" r="40" fill="#1A233A" stroke="none"/>
+  </g>
+  <g transform="translate(398.43 231.26)">
+    <path d="M 0 -44 L 44 0 L 0 44 L -44 0 Z" fill="#7357A8"/>
+  </g>
+</svg>

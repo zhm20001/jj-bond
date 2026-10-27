@@ -1,0 +1,51 @@
+# Local jj metadata (colocated Git metadata is managed by Git itself)
+.jj/
+
+# Dependencies and generated frontend output
+node_modules/
+/dist/
+/dist-ssr/
+/coverage/
+*.tsbuildinfo
+
+# Rust/Tauri output is also covered by src-tauri/.gitignore
+/target/
+
+# Local reference checkouts and scratch files
+/_ref/
+*.local
+*.tmp
+*.bak
+
+# Environment and signing credentials; sanitized examples may be committed
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.p12
+*.pfx
+*.key
+*.mobileprovision
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editors and OS metadata
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

@@ -1,0 +1,146 @@
+/* Catppuccin Mocha (dark) / Latte (light) — resolved via data-theme on <html> */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #11111b;
+  --bg-elev: #1e1e2e;
+  --bg-soft: #181825;
+  --border: #313244;
+  --border-soft: #45475a;
+  --text: #cdd6f4;
+  --text-dim: #a6adc8;
+  --muted: #6c7086;
+  --accent: #89b4fa;
+  --accent-2: #cba6f7;
+  --green: #a6e3a1;
+  --red: #f38ba8;
+  --peach: #fab387;
+  --pink: #f5c2e7;
+  --surface-hover: #262637;
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --toolbar-bg: rgba(30, 30, 46, 0.92);
+  --pill-bg: #313244;
+  --glow-a: rgba(137, 180, 250, 0.08);
+  --glow-b: rgba(203, 166, 247, 0.07);
+  --btn-primary-bg: #31456b;
+  --btn-primary-border: #456191;
+  --btn-primary-fg: #e0eaff;
+  --btn-primary-hover: #3b5480;
+  --btn-danger-bg: #5a2a38;
+  --btn-danger-border: #8a3d50;
+  --focus-ring: rgba(137, 180, 250, 0.15);
+  --select-bg: rgba(137, 180, 250, 0.12);
+  --drop-bg: rgba(245, 194, 231, 0.14);
+  --row-hover: rgba(255, 255, 255, 0.03);
+  --hint-bg: #11111b;
+  --detail-bg: rgba(24, 24, 37, 0.98);
+  --at-chip-bg: #cba6f7;
+  --at-chip-fg: #1e1e2e;
+  --badge-wc-bg: rgba(203, 166, 247, 0.2);
+  --badge-imm-bg: rgba(166, 173, 200, 0.15);
+  --badge-conflict-bg: rgba(243, 139, 168, 0.22);
+  --conflict-row-bg: rgba(243, 139, 168, 0.16);
+  --conflict-select-border: #f38ba8;
+  --conflict-mark-fg: #f38ba8;
+  --conflict-banner-bg: rgba(243, 139, 168, 0.1);
+  --conflict-banner-border: rgba(243, 139, 168, 0.45);
+  --meta-value: #bac2de;
+  --node-wc: #cba6f7;
+  --node-sel-stroke: #ffffff;
+  --backdrop: rgba(0, 0, 0, 0.55);
+  --modal-badge-bg: rgba(250, 179, 135, 0.15);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #eff1f5;
+  --bg-elev: #ffffff;
+  --bg-soft: #e6e9ef;
+  --border: #ccd0da;
+  --border-soft: #bcc0cc;
+  --text: #4c4f69;
+  --text-dim: #6c6f85;
+  --muted: #9ca0b0;
+  --accent: #1e66f5;
+  --accent-2: #8839ef;
+  --green: #40a02b;
+  --red: #d20f39;
+  --peach: #fe640b;
+  --pink: #ea76cb;
+  --surface-hover: #dce0e8;
+  --shadow: 0 12px 40px rgba(76, 79, 105, 0.18);
+  --toolbar-bg: rgba(255, 255, 255, 0.92);
+  --pill-bg: #dce0e8;
+  --glow-a: rgba(30, 102, 245, 0.08);
+  --glow-b: rgba(136, 57, 239, 0.07);
+  --btn-primary-bg: #1e66f5;
+  --btn-primary-border: #1e66f5;
+  --btn-primary-fg: #eff1f5;
+  --btn-primary-hover: #4a82f6;
+  --btn-danger-bg: #d20f39;
+  --btn-danger-border: #d20f39;
+  --focus-ring: rgba(30, 102, 245, 0.2);
+  --select-bg: rgba(30, 102, 245, 0.1);
+  --drop-bg: rgba(234, 118, 203, 0.14);
+  --row-hover: rgba(76, 79, 105, 0.05);
+  --hint-bg: #eff1f5;
+  --detail-bg: rgba(255, 255, 255, 0.98);
+  --at-chip-bg: #8839ef;
+  --at-chip-fg: #eff1f5;
+  --badge-wc-bg: rgba(136, 57, 239, 0.15);
+  --badge-imm-bg: rgba(108, 111, 133, 0.12);
+  --badge-conflict-bg: rgba(210, 15, 57, 0.14);
+  --conflict-row-bg: rgba(210, 15, 57, 0.1);
+  --conflict-select-border: #d20f39;
+  --conflict-mark-fg: #d20f39;
+  --conflict-banner-bg: rgba(210, 15, 57, 0.08);
+  --conflict-banner-border: rgba(210, 15, 57, 0.4);
+  --meta-value: #5c5f77;
+  --node-wc: #8839ef;
+  --node-sel-stroke: #4c4f69;
+  --backdrop: rgba(76, 79, 105, 0.35);
+  --modal-badge-bg: rgba(254, 100, 11, 0.15);
+}
+
+:root {
+  font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+}
+
+.muted {
+  color: var(--muted);
+}
