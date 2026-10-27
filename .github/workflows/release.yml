@@ -1,0 +1,89 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref_name }}
+  cancel-in-progress: false
+
+env:
+  TAG: ${{ github.ref_name }}
+
+jobs:
+  draft:
+    name: Create draft release
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create draft release for the tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh release view "$TAG" >/dev/null 2>&1 || \
+            gh release create "$TAG" --draft --title "jj-bond ${TAG#v}" \
+              --notes "Draft release. Notes are finalized before publishing."
+
+  build:
+    name: Build ${{ matrix.label }}
+    needs: draft
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: macos
+            os: macos-latest
+            args: --target universal-apple-darwin --bundles dmg
+          - label: windows
+            os: windows-latest
+            args: --bundles nsis,msi
+          - label: linux
+            os: ubuntu-24.04
+            args: --bundles deb,appimage,rpm
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install Linux system dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev build-essential curl wget file libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev
+      - name: Install Rust stable
+        run: |
+          rustup toolchain install stable --profile minimal
+          rustup default stable
+      - name: Add macOS universal targets
+        if: runner.os == 'macOS'
+        run: rustup target add aarch64-apple-darwin x86_64-apple-darwin
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+      - run: npm ci
+      - name: Build bundles
+        run: npm run tauri build -- ${{ matrix.args }}
+      - name: Upload artifacts and checksums
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          artifacts=$(node scripts/release-artifacts.mjs src-tauri/target "checksums-${{ matrix.label }}.txt")
+          if [ -z "$artifacts" ]; then
+            echo "No bundle artifacts found under src-tauri/target" >&2
+            exit 1
+          fi
+          echo "$artifacts"
+          gh release upload "$TAG" "checksums-${{ matrix.label }}.txt" $artifacts --clobber
