@@ -62,16 +62,32 @@ See the [actual Actions results](https://github.com/zhm20001/jj-bond/actions)
 for each public commit. Configuring the matrix alone is not a passing result.
 A successful job verifies builds/tests, not interactive GUI behavior.
 
+## Binary release channel (2026-10-27)
+
+- Installers are published unsigned from GitHub Releases via the tag-triggered
+  `Release` workflow: a macOS universal `.dmg`, Windows NSIS `.exe` and `.msi`,
+  and Linux `.deb`, `.rpm` and `.AppImage`, each with a `checksums-*.txt` file.
+- Distribution channels are GitHub Releases and the `zhm20001/tap` Homebrew
+  tap. Homebrew downloads skip the macOS quarantine attribute, so unsigned
+  builds launch without the Gatekeeper approval step; direct downloads need
+  the first-launch approval documented in the README.
+- Only the macOS build has interactive GUI validation (see above). Windows and
+  Linux installers are CI build artifacts; their interactive behavior is not
+  yet verified.
+- Apple Developer Program membership, Developer ID signing and notarization
+  are pending a maintainer decision; the unsigned transition was chosen
+  deliberately (see docs/RELEASING.md).
+
 ## Remaining external release gates
 
-- No usable macOS code-signing identity was present (security find-identity
-  reported zero). Developer ID signing and Apple notarization require the
-  maintainer's account/certificate. No credentials were created or requested.
+- No Developer ID certificate was present (security find-identity reported
+  zero); the published installers are unsigned (see Binary release channel
+  above). Signing and Apple notarization require the maintainer's
+  account/certificate. No credentials were created or requested.
 - No Windows/Linux desktop session was available for interactive testing.
-- No signed installer or binary GitHub release is published by the source import.
 - The existing com.jj-bond.app identifier still causes Tauri's naming warning;
   changing application identity is deferred to a deliberate installer migration.
 - Per-file line counts still come from scaled histograms; overall totals are exact.
 
-These are explicitly a source release and macOS smoke-test baseline, not a
-claim of complete cross-platform installer certification.
+These are explicitly an unsigned binary transition and a macOS smoke-test
+baseline, not a claim of cross-platform installer certification.

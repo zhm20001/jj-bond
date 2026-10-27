@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.1.0 — initial public source snapshot
+## 0.1.0 — initial public release
 
-Initial public source version. Local verification targets macOS and jj 0.46.0.
+Initial public release. Local verification targets macOS and jj 0.46.0.
 
 ### Features
 
@@ -31,8 +31,12 @@ Initial public source version. Local verification targets macOS and jj 0.46.0.
 ### Known release limits
 
 - Core macOS desktop workflows were tested with a disposable repository.
-  Windows/Linux GUI behavior still needs interactive validation.
-- Signed/notarized installers remain separate binary-release work.
+  Windows/Linux GUI behavior still needs interactive validation; their
+  installers are CI builds.
+- Installers are published unsigned from GitHub Releases and a Homebrew tap;
+  Developer ID signing and notarization are planned once an Apple Developer
+  Program membership is available. macOS first launch needs a one-time
+  Gatekeeper approval (see the README install section).
 - Per-file line counts still use scaled diff-stat histograms; large individual
   files may show approximate counts even though overall totals are exact.
 - See docs/RELEASING.md for remaining publication gates.

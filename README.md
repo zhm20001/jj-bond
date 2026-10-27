@@ -7,17 +7,49 @@ Explore revision history as a graph, inspect diffs, and perform common revision
 operations without leaving the application.
 
 The interface supports Chinese and English, light/dark/system themes, and compact
-or detailed graph rows. This repository currently provides a source build;
-packaged releases and platform certification are separate release work.
+or detailed graph rows.
 
-The initial open-source version is **0.1.0** (early development). See the
-[changelog](CHANGELOG.md) and [version policy](docs/RELEASING.md#version-policy).
-This does not announce a published or signed binary release.
+The initial open-source version is **0.1.0** (early development). Installers are
+published from [GitHub Releases](https://github.com/zhm20001/jj-bond/releases)
+without code signing or notarization; see [Download and install](#download-and-install).
+See the [changelog](CHANGELOG.md) and [version policy](docs/RELEASING.md#version-policy).
 
 Repository: [zhm20001/jj-bond](https://github.com/zhm20001/jj-bond).
 Report bugs and contact the maintainer through [Issues](https://github.com/zhm20001/jj-bond/issues).
 
 ![macOS desktop, disposable demo repository](docs/screenshots/macos-light-en.png)
+
+## Download and install
+
+jj-bond drives the `jj` executable; install [Jujutsu](https://jj-vcs.dev/)
+first (local checks use jj 0.46.0).
+
+### macOS (Apple silicon and Intel)
+
+With [Homebrew](https://brew.sh):
+
+```sh
+brew install --cask zhm20001/tap/jj-bond
+```
+
+Or download the `.dmg` from the
+[latest release](https://github.com/zhm20001/jj-bond/releases/latest) and drag
+`jj-bond.app` to `Applications`. The build is unsigned, so the first launch
+needs a one-time approval: double-click the app, then open
+**System Settings → Privacy & Security**, scroll down and click
+**Open Anyway** (or run `xattr -cr /Applications/jj-bond.app` instead).
+
+### Windows and Linux
+
+Download the installer from the
+[latest release](https://github.com/zhm20001/jj-bond/releases/latest)
+(`.exe`/`.msi` on Windows, `.deb`/`.rpm`/`.AppImage` on Linux). Windows may
+show a SmartScreen warning for the unsigned build; choose
+**More info → Run anyway**. These installers are CI builds; interactive
+Windows/Linux GUI validation is still in progress.
+
+Verify any download against the `checksums-*.txt` files shipped with each
+release.
 
 ## Features
 

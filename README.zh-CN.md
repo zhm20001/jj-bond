@@ -6,15 +6,43 @@
 通过图谱浏览修订历史、查看差异，并直接完成常用的版本管理操作。
 
 界面支持中英文、浅色／深色／跟随系统主题，以及紧凑或详细的图谱行。
-目前提供源码构建方式；安装包发行与各平台验证属于单独的发布工作。
 
-首个开源版本定为 **0.1.0**（早期开发阶段）。参见[变更记录](CHANGELOG.md)和
-[版本规则](docs/RELEASING.md#version-policy)。这不表示安装包已经发布或签名。
+首个开源版本定为 **0.1.0**（早期开发阶段）。安装包已通过
+[GitHub Releases](https://github.com/zhm20001/jj-bond/releases) 发布，
+**未做代码签名和公证**；参见[下载安装](#下载安装)、
+[变更记录](CHANGELOG.md)和[版本规则](docs/RELEASING.md#version-policy)。
 
 仓库：[zhm20001/jj-bond](https://github.com/zhm20001/jj-bond)。
 问题反馈与维护者联系渠道：[Issues](https://github.com/zhm20001/jj-bond/issues)。
 
 ![macOS 桌面，使用临时演示仓库](docs/screenshots/macos-dark-zh.png)
+
+## 下载安装
+
+jj-bond 依赖本机的 `jj` 可执行文件，请先安装
+[Jujutsu](https://jj-vcs.dev/)（本地验证使用 jj 0.46.0）。
+
+### macOS（Apple 芯片与 Intel）
+
+使用 [Homebrew](https://brew.sh)：
+
+```sh
+brew install --cask zhm20001/tap/jj-bond
+```
+
+或从[最新 release](https://github.com/zhm20001/jj-bond/releases/latest) 下载
+`.dmg`，把 `jj-bond.app` 拖入「应用程序」。安装包未签名，首次打开需要
+一次性放行：双击应用后，进入 **系统设置 → 隐私与安全性**，向下滚动并点击
+**仍要打开**（也可以执行 `xattr -cr /Applications/jj-bond.app` 代替）。
+
+### Windows 与 Linux
+
+从[最新 release](https://github.com/zhm20001/jj-bond/releases/latest) 下载
+对应安装包（Windows 为 `.exe`／`.msi`，Linux 为 `.deb`／`.rpm`／`.AppImage`）。
+Windows 对未签名构建可能弹出 SmartScreen 警告，选择 **更多信息 → 仍要运行**。
+这些安装包由 CI 构建，Windows／Linux 的交互式 GUI 验证仍在进行中。
+
+下载后可用 release 内的 `checksums-*.txt` 文件核对校验和。
 
 ## 功能
 
