@@ -30,6 +30,9 @@ jj-bond 依赖本机的 `jj` 可执行文件，请先安装
 brew install --cask zhm20001/tap/jj-bond
 ```
 
+当前版本的 Homebrew 对 cask 安装同样会附加 macOS 隔离属性，因此未签名
+构建仍需按下文说明做一次首开放行；安装时会打印提醒。
+
 或从[最新 release](https://github.com/zhm20001/jj-bond/releases/latest) 下载
 `.dmg`，把 `jj-bond.app` 拖入「应用程序」。安装包未签名，首次打开需要
 一次性放行：双击应用后，进入 **系统设置 → 隐私与安全性**，向下滚动并点击

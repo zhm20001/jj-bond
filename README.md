@@ -32,6 +32,10 @@ With [Homebrew](https://brew.sh):
 brew install --cask zhm20001/tap/jj-bond
 ```
 
+Current Homebrew also applies the macOS quarantine attribute to cask
+installs, so the unsigned build still needs the one-time first-launch
+approval described below; the installer prints a reminder.
+
 Or download the `.dmg` from the
 [latest release](https://github.com/zhm20001/jj-bond/releases/latest) and drag
 `jj-bond.app` to `Applications`. The build is unsigned, so the first launch

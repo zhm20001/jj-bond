@@ -68,9 +68,13 @@ A successful job verifies builds/tests, not interactive GUI behavior.
   `Release` workflow: a macOS universal `.dmg`, Windows NSIS `.exe` and `.msi`,
   and Linux `.deb`, `.rpm` and `.AppImage`, each with a `checksums-*.txt` file.
 - Distribution channels are GitHub Releases and the `zhm20001/tap` Homebrew
-  tap. Homebrew downloads skip the macOS quarantine attribute, so unsigned
-  builds launch without the Gatekeeper approval step; direct downloads need
-  the first-launch approval documented in the README.
+  tap. Current Homebrew (verified on 7.0.11 / macOS 26.6) sets the macOS
+  quarantine attribute on cask installs, so unsigned builds need the same
+  one-time first-launch approval as direct downloads (Gatekeeper blocks the
+  first Finder launch with "Apple cannot verify..."). Approving via
+  System Settings → Privacy & Security → Open Anyway, or removing the
+  attribute with `xattr -dr com.apple.quarantine /Applications/jj-bond.app`,
+  restores normal launching. The cask prints this reminder at install time.
 - Only the macOS build has interactive GUI validation (see above). Windows and
   Linux installers are CI build artifacts; their interactive behavior is not
   yet verified.
